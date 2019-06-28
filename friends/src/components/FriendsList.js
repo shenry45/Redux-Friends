@@ -1,4 +1,5 @@
 import React from 'react';
+import styled from 'styled-components';
 import { connect } from 'react-redux';
 
 import Friend from './Friend';
@@ -12,14 +13,20 @@ class FriendsList extends React.Component {
   
   render() {
     return (
-      <div>
+      <FriendContainer>
+        <h1>My Friends</h1>
         {
           this.props.friends.length > 0 && this.props.friends.map(friend => <Friend friend={friend} />)
         }
-      </div>
+      </FriendContainer>
     )
   }
 }
+
+const FriendContainer = styled.div`
+  width: 500px;
+  margin: 0 auto;
+`;
 
 const mapStateToProps = state => {
   return {

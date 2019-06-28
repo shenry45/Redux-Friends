@@ -4,12 +4,9 @@ import { connect } from 'react-redux';
 import { logIn } from '../actions/logIn';
 
 class LoginForm extends React.Component {
-  constructor() {
-    super();
-    this.state = {
+  state = {
       username: '',
       password: ''
-    }
   }
 
   handleChanges = e => {
@@ -21,9 +18,9 @@ class LoginForm extends React.Component {
   handleLoggingIn = e => {
     e.preventDefault();
 
-    console.log(this.state.username)
-
-    this.props.logIn(this.props.username, this.props.password);
+    this.props
+      .logIn(this.state)
+      .then(() => this.props.history.push("/friends"))
   }
 
   render() {

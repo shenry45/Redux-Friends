@@ -1,8 +1,10 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, NavLink } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 
 // components
-import Login from './components/Login'
+import Login from './components/Login';
+import PrivateRoute from './components/PrivateRoute';
+import FriendsList from './components/FriendsList';
 
 // styles
 import './App.css';
@@ -12,11 +14,12 @@ function App() {
     <Router className="App">
       <header>
         <nav>
-          <NavLink to="/">Login</NavLink>
-          <NavLink to="/">Protected</NavLink>
+          <Link to="/login">Login</Link>
+          <Link to="/friends">Protected</Link>
         </nav>
       </header>
-      <Route to="/login" component={Login} />
+      <Route path="/login" component={Login} />
+      <PrivateRoute exact path="/friends" component={FriendsList} />
     </Router>
   );
 }

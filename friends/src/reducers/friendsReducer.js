@@ -1,4 +1,4 @@
-import { SUCCESS, FAILURE, LOADING } from '../actions';
+import { GET_FRIENDS_SUCCESS, GET_FRIENDS_FAILURE, GET_FRIENDS_LOADING } from '../actions/getFriends';
 
 const initialState = {
   friends: [],
@@ -9,17 +9,17 @@ const initialState = {
 
 export const friendsReducer = (state = initialState, action) => {
   switch (action.type) {
-    case LOADING: 
+    case GET_FRIENDS_LOADING: 
       return {
         ...state,
         loading: true
       }
-    case SUCCESS: 
+    case GET_FRIENDS_SUCCESS: 
       return {
         ...state,
         friends: action.payload
     }
-    case FAILURE: 
+    case GET_FRIENDS_FAILURE: 
       return {
         ...state,
         failure: true

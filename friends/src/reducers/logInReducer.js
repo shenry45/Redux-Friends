@@ -8,12 +8,12 @@ const initialState = {
 
 }
 
-export const logInReducer = (state = initialState, action) => {
+const logInReducer = (state = initialState, action) => {
   switch (action.type) {
     case LOGIN_PENDING:
       return {
         ...state,
-        pending: true
+        pending: action.payload
       }
     case LOGIN_SUCCESS:
       return {
@@ -31,3 +31,5 @@ export const logInReducer = (state = initialState, action) => {
         return state
   }
 }
+
+export default logInReducer;

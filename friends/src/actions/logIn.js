@@ -6,7 +6,7 @@ export const LOGIN_FAILURE = 'LOGIN_FAILURE' ;
 
 export const logIn = creds => dispatch => {
   // show login loader
-  dispatch({ type: LOGIN_PENDING });
+  dispatch({ type: LOGIN_PENDING, payload: true });
 
   // auth with API
   return axios

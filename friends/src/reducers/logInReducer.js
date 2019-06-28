@@ -8,28 +8,30 @@ const initialState = {
 
 }
 
-const logInReducer = (state = initialState, action) => {
+export const logInReducer = (state = initialState, action) => {
   switch (action.type) {
+
     case LOGIN_PENDING:
       return {
         ...state,
         pending: action.payload
       }
+
     case LOGIN_SUCCESS:
       return {
         ...state,
         success: true
       }
+
     case LOGIN_FAILURE:
       return {
         ...state,
+        pending: false,
         failure: true,
         error: action.payload
       }
     
-      default:
-        return state
+    default:
+      return state
   }
 }
-
-export default logInReducer;

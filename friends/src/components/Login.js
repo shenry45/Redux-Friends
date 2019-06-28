@@ -25,9 +25,10 @@ class Login extends React.Component {
   }
 
   render() {
-    this.props.pending && (
-      <Loader type="ThreeDots" color="#ff0000" height={80} width={80} />
-    )
+    
+    if (this.props.pending) {
+      return <Loader type="Ball-Triangle" color="#0f0ff0" height={80} width={80} />
+    }
 
     return (
       <div>
@@ -48,13 +49,14 @@ class Login extends React.Component {
           >Login</button> 
         </form>
       </div>
-
     )
   }
 }
 
 const mapStatetoProps = state => {
-  pending: state.logInReducer.pending
+  return {
+    pending: state.logInReducer.pending
+  }
 }
 
 export default connect(mapStatetoProps, { logIn })(Login);
